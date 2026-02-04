@@ -18,7 +18,7 @@ public class PlayerHealth: MonoBehaviour, IDamageable
 
   void Awake()
   {
-    currentHealth = maxHealth
+    currentHealth = maxHealth;
     sprite = GetComponent<SpriteRenderer>();
   }
   void Update()
@@ -28,7 +28,7 @@ public class PlayerHealth: MonoBehaviour, IDamageable
         invulnerabilityTimer -= Time.deltaTime;
     }
   }
-  public bool ApplyDmamage(float amount)
+  public bool ApplyDamage(float amount)
   {
     if(currentHealth <= 0f || invulnerabilityTimer >0f)
     return false;
@@ -39,7 +39,7 @@ public class PlayerHealth: MonoBehaviour, IDamageable
         Die();
         return true;
     }
-    invulnerabilityTimer = invulnerabilityDuration
+    invulnerabilityTimer = invulnerabilityDuration;
     StartBlink(invulnerabilityDuration);
     return true;
   }

@@ -1,4 +1,4 @@
 public interface IDamageable
 {
-  bool ApplyDamage(float amount)
+  bool ApplyDamage(float amount);
 }
