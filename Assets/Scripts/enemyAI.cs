@@ -92,6 +92,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         }
         if(direction != 0)
         {
+            // HERE IS A LIKELY CAUSE OF BIG PROBLEM BOOM BOOM EXPLOSION
           Vector3 scale = transform.localScale;
           scale.x = Mathf.Abs(scale.x)*(direction > 0 ? 1 : -1);
         }
