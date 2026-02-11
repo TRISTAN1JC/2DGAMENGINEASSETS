@@ -3,9 +3,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 8f;
-    public float jumpForce = 12f;
+    public float jumpForce = 8f;
     public Transform groundCheck;
-    public float groundCheckDistance = 0.12f;
+    public float groundCheckDistance = 0.8f;
     public Vector2 groundCheckOffset = new Vector2(0f, -0.5f);
     public LayerMask groundLayer;
 

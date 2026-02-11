@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class enemyAI : MonoBehaviour, IDamageable
+public class EnemyAI : MonoBehaviour, IDamageable
 {
     [Header("Stats")]
     [SerializeField] private float maxHealth = 50f;
@@ -21,8 +21,9 @@ public class enemyAI : MonoBehaviour, IDamageable
     private bool isMovingRight =true;
     private Rigidbody2D rb;
 
+    [System.Obsolete]
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    private void Awake()
     {
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
@@ -34,7 +35,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (currentHealth <= 0) return;
         attackTimer -= Time.deltaTime;
@@ -57,7 +58,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     }
     private void ChasePlayer(float distanceToPlayer)
     {
-        if(distanceToPlayer<= attackRange)
+        if(distanceToPlayer <= attackRange)
         {
         IDamageable playerDamageable = player.GetComponent<IDamageable>();
         if(playerDamageable != null && attackTimer <= 0f)
@@ -88,13 +89,13 @@ public class enemyAI : MonoBehaviour, IDamageable
     {
         if(rb != null)
         {
-            rb.linearVelocity = new Vector2(direction *moveSpeed, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(direction * moveSpeed, rb.linearVelocity.y);
         }
+        //flip sprite
         if(direction != 0)
         {
             // HERE IS A LIKELY CAUSE OF BIG PROBLEM BOOM BOOM EXPLOSION
-          Vector3 scale = transform.localScale;
-          scale.x = Mathf.Abs(scale.x)*(direction > 0 ? 1 : -1);
+        transform.localScale = new Vector3(Mathf.Sign(direction), 1f, 1f);
         }
     }
     public bool ApplyDamage(float damage)
