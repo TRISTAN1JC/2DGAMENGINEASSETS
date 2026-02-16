@@ -36,6 +36,25 @@ public class NewMonoBehaviourScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void TogglePause()
+    {
+        if(isPaused)
+        ResumeGame();
+        else
+        PauseGame();
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+        isPaused = true;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f;
+        isPaused = false;
+    }
     void Start()
     {
         
