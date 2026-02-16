@@ -20,7 +20,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     public void LoadScene(string sceneName)
     {
         Time.timeScale = 1f;
@@ -28,7 +28,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    // Update is called once per frame
     public void ReloadScene()
     {
         Time.timeScale = 1f;
@@ -54,9 +53,5 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         Time.timeScale = 1f;
         isPaused = false;
-    }
-    void Start()
-    {
-        
     }
 }
