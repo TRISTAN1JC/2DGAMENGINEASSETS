@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance;
 
@@ -53,5 +53,15 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         Time.timeScale = 1f;
         isPaused = false;
+    } 
+    
+    public void QuitGame()
+    {
+        Debug.Log("Quitting Game...");
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
+        Application.Quit();
+        #endif
     }
 }
