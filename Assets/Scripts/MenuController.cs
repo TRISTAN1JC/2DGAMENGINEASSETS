@@ -1,16 +1,59 @@
 using UnityEngine;
+using System.Collections;
+using Unity.VisualScripting;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class MenuController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+  public CanvasGroup mainMenu;
+
+  public CanvasGroup optionsMenu;
+
+  public float transitionDuration = .25f;
+void Start()
     {
-        
+        ShowMainMenuInstant();
+    }
+    
+    public void OpenOptionsMenu()
+    {
+        StartCoroutine(TransitionMenus(mainMenu, optionsMenu));
+    }
+    
+    public void BackToMainMenu()
+    {
+        StartCoroutine(TransitionMenus(optionsMenu,mainMenu));
+    }
+    void ShowMainMenuInstant()
+    {
+        mainMenu.alpha = 1;
+        mainMenu.interactable = true;
+        mainMenu.blocksRaycasts = true;
+
+        optionsMenu.alpha = 0;
+        optionsMenu.interactable = false;
+        optionsMenu.blocksRaycasts = false;
+        optionsMenu.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator /*syntax for a coroutine */ TransitionMenus(CanvasGroup currentMenu, CanvasGroup nextMenu)
     {
+        float timer = 0f;
+        nextMenu.gameObject.SetActive(true);
         
+        while (timer < transitionDuration)
+        {
+            timer += Time.deltaTime;
+            float progress = timer/transitionDuration;
+            currentMenu.alpha = 1-progress;
+            nextMenu.alpha = progress;
+            yield return null; /*Yield return always has to be here*/
+        }
+
+    currentMenu.interactable = false;
+    currentMenu.blocksRaycasts = false;
+    currentMenu.gameObject.SetActive(false);
+
+    nextMenu.interactable = true;
+    nextMenu.blocksRaycasts = true;
     }
 }
