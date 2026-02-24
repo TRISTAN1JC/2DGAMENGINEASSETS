@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerHealth: MonoBehaviour, IDamageable
 {
@@ -15,13 +16,20 @@ public class PlayerHealth: MonoBehaviour, IDamageable
   float blinkTimer;
 
   bool blinking;
-
-  void Awake()
+  public Slider healthSlider;
+ 
+  private void Awake()
   {
     currentHealth = maxHealth;
-    sprite = GetComponent<SpriteRenderer>();
+    //spriteRenderer = GetComponent<SpriteRenderer>();
+
+    if (healthSlider != null)
+    {
+      healthSlider.maxValue = maxHealth;
+      healthSlider.value = currentHealth;
+    }
   }
-  void Update()
+  private void Update()
   {
     if(invulnerabilityTimer > 0f)
     {
@@ -34,6 +42,9 @@ public class PlayerHealth: MonoBehaviour, IDamageable
     return false;
     
     currentHealth -= amount;
+    if(healthSlider != null)
+    healthSlider.value = currentHealth;
+    
     if (currentHealth <= 0f)
     {
         Die();
