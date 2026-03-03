@@ -3,7 +3,7 @@ using UnityEngine;
 public class Collectible : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed = 90f;
-    void Update()
+    private void Update()
     {
         transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
     }
@@ -12,7 +12,7 @@ public class Collectible : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             AudioManager.Instance.PlaySFX(AudioManager.Instance.collectibleSFX);
-            GameManager.Instance.AddCollectible();
+           // GameManager.Instance.AddCollectible();
             Destroy (gameObject);
         }
     }

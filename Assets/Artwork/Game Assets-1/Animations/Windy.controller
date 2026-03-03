@@ -173,13 +173,13 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -3221833062200607592}
-    m_Position: {x: 480, y: -30, z: 0}
+    m_Position: {x: 500, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2898836160521452498}
     m_Position: {x: 260, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4871622475317630802}
-    m_Position: {x: 480, y: 280, z: 0}
+    m_Position: {x: 510, y: 260, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -196,7 +196,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bug_Hero
+  m_Name: Windy
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: moveInput
