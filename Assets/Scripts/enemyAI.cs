@@ -34,7 +34,6 @@ public class EnemyAI : MonoBehaviour, IDamageable
         }
     }
 
-    // Update is called once per frame
     private void Update()
     {
         if (currentHealth <= 0) return;
@@ -95,7 +94,9 @@ public class EnemyAI : MonoBehaviour, IDamageable
         if(direction != 0)
         {
             // HERE IS A LIKELY CAUSE OF BIG PROBLEM BOOM BOOM EXPLOSION
-        transform.localScale = new Vector3(Mathf.Sign(direction), 200f, 200f);
+        Vector3 scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * (direction > 0 ? 1 : -1);
+        transform.localScale = scale;
         }
     }
     public bool ApplyDamage(float damage)
