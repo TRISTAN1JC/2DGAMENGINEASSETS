@@ -95,7 +95,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
         if(direction != 0)
         {
             // HERE IS A LIKELY CAUSE OF BIG PROBLEM BOOM BOOM EXPLOSION
-        transform.localScale = new Vector3(Mathf.Sign(direction), 1f, 1f);
+        transform.localScale = new Vector3(Mathf.Sign(direction), 200f, 200f);
         }
     }
     public bool ApplyDamage(float damage)
