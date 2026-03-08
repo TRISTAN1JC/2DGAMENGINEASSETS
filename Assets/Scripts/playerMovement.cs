@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void Update()
+    private void Update()
     {
         horizInput = Input.GetAxisRaw("Horizontal");
 
@@ -46,6 +46,12 @@ public class PlayerMovement : MonoBehaviour
             AudioManager.Instance.PlaySFX(AudioManager.Instance.jumpSFX);
         }
 
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
+
+
         if (spriteRenderer != null)
         {
             if (horizInput > 0.1f) spriteRenderer.flipX = false;
@@ -58,6 +64,8 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("moveInput", Mathf.Abs(horizInput));
             animator.SetBool("isGrounded", isGrounded);
         }
+        
+
     }
 
     void FixedUpdate()
@@ -80,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //Dash
+    //Dash Mechanic :D
     private IEnumerator Dash()
     {
         canDash = false;
