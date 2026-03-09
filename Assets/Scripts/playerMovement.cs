@@ -63,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
                 dashDir = new Vector2(transform.localScale.x, 0);
                 
             StartCoroutine(Dash(dashDir));
-
         }
 
 
