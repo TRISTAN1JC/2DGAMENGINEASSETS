@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float groundCheckDistance = 0.8f;
     public Vector2 groundCheckOffset = new Vector2(0f, -0.5f);
     public LayerMask groundLayer;
+    public Vector2 dashDir;
 
     private Rigidbody2D rb;
     private float horizInput;
@@ -32,8 +33,14 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    /*private*/ void Update()
     {
+        
+        if (isDashing)
+        {
+        return;
+        }
+  
         horizInput = Input.GetAxisRaw("Horizontal");
 
         Vector2 rayOrigin = groundCheck != null ? (Vector2)groundCheck.position : (Vector2)transform.position + groundCheckOffset;
@@ -48,7 +55,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
-            StartCoroutine(Dash());
+            float x = Input.GetAxisRaw("Horizontal");
+            float y = Input.GetAxisRaw("Vertical");
+            Vector2 dashDir = new Vector2(x, y);
+
+            if (dashDir == Vector2.zero)
+                dashDir = new Vector2(transform.localScale.x, 0);
+                
+            StartCoroutine(Dash(dashDir));
+
         }
 
 
@@ -65,14 +80,17 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isGrounded", isGrounded);
         }
         
-
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(horizInput * speed, rb.linearVelocity.y);
+     if (isDashing)
+    {
+        return;
     }
 
+        rb.linearVelocity = new Vector2(horizInput * speed, rb.linearVelocity.y);
+    }
 
     void OnDrawGizmosSelected()
     {
@@ -89,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Dash Mechanic :D
-    private IEnumerator Dash()
+    private IEnumerator Dash(/*this is what solved an issue but not in the way I wanted...*/Vector2 dashDir)
     {
         canDash = false;
         isDashing = true;

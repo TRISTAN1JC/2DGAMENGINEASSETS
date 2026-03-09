@@ -3971,7 +3971,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  tr: {fileID: 0}
+  dashDir: {x: 0, y: 0}
+  tr: {fileID: 2061902206}
 --- !u!50 &2061902201
 Rigidbody2D:
   serializedVersion: 5
@@ -4167,76 +4168,22 @@ TrailRenderer:
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 2
+    widthMultiplier: 1
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.029899254
-        value: 0.22307962
+        time: 0.023254052
+        value: 0.50000376
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.05754623
-        value: 0.5051484
-        inSlope: 4.032625
-        outSlope: 4.032625
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.122924924
-        value: 0.58461845
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.21192215
-        value: 0.6493289
-        inSlope: 3.0684674
-        outSlope: 3.0684674
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.37208134
-        value: 0.79230857
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.53820455
-        value: 0.65384746
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.7607973
-        value: 0.37692302
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
       - serializedVersion: 3
         time: 1
-        value: 0.31538463
+        value: 0.10000682
         inSlope: 0
         outSlope: 0
         tangentMode: 0
