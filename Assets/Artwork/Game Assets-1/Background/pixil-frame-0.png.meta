@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 071b2ca222e12a64dad3c6413205112c
+guid: 154df305407190d4ead8a9559e3cf9dc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2425998877074102167
-    second: Fan-animated-1_0
+      213: -3337038689812066966
+    second: pixil-frame-0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,31 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fan-animated-1_0
+      name: pixil-frame-0_0
       rect:
         serializedVersion: 2
-        x: 39
+        x: 0
         y: 0
-        width: 158
-        height: 233
+        width: 2250
+        height: 2250
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline:
-      - - {x: 79, y: -116.22203}
-        - {x: 77.266464, y: 116.476715}
-        - {x: -77.97059, y: 116.5}
-        - {x: -79, y: -116.5}
-      - - {x: -79, y: -116.5}
-        - {x: 79, y: -116.5}
-        - {x: 79, y: 116.5}
-        - {x: -79, y: 116.5}
+      outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7979f7d0021eaa120800000000000000
-      internalID: 2425998877074102167
+      spriteID: a6d4404fdf470b1d0800000000000000
+      internalID: -3337038689812066966
       vertices: []
       indices: 
       edges: []
@@ -146,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4e8c45465420b5e478acc582ce4fc1d7
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -156,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Fan-animated-1_0: 2425998877074102167
+      pixil-frame-0_0: -3337038689812066966
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

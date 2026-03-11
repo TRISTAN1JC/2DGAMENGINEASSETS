@@ -1,5 +1,9 @@
+using System;
 using System.Collections;
+using Unity.Collections;
+using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    private bool isFacingRight;
     
     //dash parameters
     private bool canDash = true;
@@ -35,7 +40,17 @@ public class PlayerMovement : MonoBehaviour
 
     /*private*/ void Update()
     {
-        
+        /*if(Input.GetKeyDown(KeyCode.A) && isFacingRight == true)
+        {
+        isFacingRight = false;
+        }
+    
+        if(Input.GetKeyDown(KeyCode.D) && isFacingRight == false)
+        {
+        isFacingRight = true;
+        //print("Directional change");
+        }*/
+
         if (isDashing)
         {
         return;
@@ -53,15 +68,18 @@ public class PlayerMovement : MonoBehaviour
             AudioManager.Instance.PlaySFX(AudioManager.Instance.jumpSFX);
         }
 
+        //Attempt at directional movement
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
-            float x = Input.GetAxisRaw("Horizontal");
-            float y = Input.GetAxisRaw("Vertical");
-            Vector2 dashDir = new Vector2(x, y);
-
+           float y = Input.GetAxisRaw("Vertical");
+            Vector2 dashDir = new Vector2(horizInput, y);
+            
             if (dashDir == Vector2.zero)
-                dashDir = new Vector2(transform.localScale.x, 0);
-                
+            dashDir = new Vector2(transform.localScale.x,0);
+
+         // if(isFacingRight != true)
+         //rb.linearVelocityX = dashingPower * transform.localScale.x;
+
             StartCoroutine(Dash(dashDir));
         }
 
@@ -106,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Dash Mechanic :D
-    private IEnumerator Dash(/*this is what solved an issue but not in the way I wanted...*/Vector2 dashDir)
+    private IEnumerator Dash(Vector2 dashDir)
     {
         canDash = false;
         isDashing = true;
