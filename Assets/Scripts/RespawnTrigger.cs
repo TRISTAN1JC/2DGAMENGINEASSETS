@@ -15,7 +15,7 @@ public class RespawnTrigger : MonoBehaviour
                 collision.transform.position = playerRespawnPosition;
             }
             }
-            else if (collision.CompareTag("Enemy"))
+            else if (collision.CompareTag("Pushable"))
             {
                 var enemy = collision.GetComponent<EnemyAI>();
                 if(enemy != null)
