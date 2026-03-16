@@ -963,7 +963,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1567397560}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
@@ -974,7 +974,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: MainLevel
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &683256883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2030,6 +2030,7 @@ GameObject:
   - component: {fileID: 1567397556}
   - component: {fileID: 1567397555}
   - component: {fileID: 1567397559}
+  - component: {fileID: 1567397560}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2136,6 +2137,18 @@ MonoBehaviour:
   mainMenu: {fileID: 610576552}
   optionsMenu: {fileID: 0}
   transitionDuration: 0.25
+--- !u!114 &1567397560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567397554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5942b2a6d87bc4d4e95d38792354299c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1783136683
 GameObject:
   m_ObjectHideFlags: 0
@@ -2698,7 +2711,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1567397560}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -2912,5 +2925,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 503540373}
   - {fileID: 495219616}
-  - {fileID: 1567397558}
   - {fileID: 907495620}
+  - {fileID: 1567397558}
