@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     //dash parameters
     private bool canDash = true;
     private bool isDashing;
-    private float dashingPower = 24f;
+    private float dashingPower = 48f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
 

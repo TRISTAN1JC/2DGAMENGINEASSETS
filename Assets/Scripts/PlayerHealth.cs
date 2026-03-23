@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 [RequireComponent(typeof(SpriteRenderer))]
@@ -47,6 +48,8 @@ public class PlayerHealth: MonoBehaviour, IDamageable
     if(healthSlider != null)
     healthSlider.value = currentHealth;
     
+   // PlayHitEffect();
+
     if (currentHealth <= 0f)
     {
         Die();
@@ -56,6 +59,13 @@ public class PlayerHealth: MonoBehaviour, IDamageable
     StartBlink(invulnerabilityDuration);
     return true;
   }
+
+ /* private void PlayHitEffect()
+  {
+    if (spriteMaterial == null) 
+    
+  
+  } */
 
 
   void StartBlink (float duration)
