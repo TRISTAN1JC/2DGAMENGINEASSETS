@@ -20,6 +20,7 @@ public class RespawnTrigger : MonoBehaviour
                 var enemy = collision.GetComponent<EnemyAI>();
                 if(enemy != null)
                 {
+                    
                     collision.transform.position = enemyRespawnPosition;
                 }
             }
