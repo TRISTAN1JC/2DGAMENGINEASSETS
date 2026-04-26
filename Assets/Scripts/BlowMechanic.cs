@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class BlowMechanic : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class BlowMechanic : MonoBehaviour
 	public LayerMask boxMask;
     GameObject /* box might need to be changed */ box;
   
+    [SerializeField] private Animator _animator;
     // Update is called once per frame
     void Update()
     {
@@ -25,6 +27,11 @@ public class BlowMechanic : MonoBehaviour
         } else if (Input.GetKeyUp (KeyCode.E)) {
 						box.GetComponent<FixedJoint2D> ().enabled = false;
 					//	box.GetComponent<boxpull> ().beingPushed = false;
+                    if (Input.GetKeyUp (KeyCode.E)) {
+                    _animator.SetBool("EPressed", true);
+                    } else
+                     _animator.SetBool("EPressed", false);
+                    
 	}
 
     }

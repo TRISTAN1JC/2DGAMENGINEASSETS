@@ -110,6 +110,14 @@ public class EnemyAI : MonoBehaviour, IDamageable
         }
         return true;
     }
+
+   /* void OnTriggerStay2D(Collider2D other)
+  {
+    if(other.TryGetComponent(out IDamageable damageable))
+    {
+        damageable.ApplyDamage (damage);
+    } 
+  } */
     private void Die()
     {
         rb.linearVelocity = Vector2.zero;
